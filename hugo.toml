@@ -1,0 +1,73 @@
+baseURL = 'https://eamstream.com/'
+title = 'EAMStream'
+theme = 'PaperMod'
+locale = 'en-us'
+DefaultContentLanguage = 'en'
+paginate = 10
+
+[params]
+  description = 'Practical IBM Maximo / EAM technical notes: MAS 9, integration, automation scripts, REST APIs, BIRT and more — from 10+ years of hands-on experience.'
+  author = 'Jacky Qiu'
+  # defaultTheme: light | dark | auto
+  defaultTheme = 'auto'
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableAnchoredHeadings = false
+  # Edit links (fill in after the site repo exists)
+  # ShowPostEditLink = true
+  # editPostURL = 'https://github.com/<user>/<repo>/edit/main/content'
+
+  [params.homeInfoParams]
+    Title = 'EAMStream'
+    Content = 'Hands-on IBM Maximo / EAM technical notes — MAS 9, MIF integration, automation scripts, REST APIs, BIRT reports and real-world troubleshooting.'
+
+  [params.socialIcons]
+  # Add when ready, e.g.:
+  # - name = 'linkedin'
+  #   url = 'https://www.linkedin.com/in/...'
+  # - name = 'github'
+  #   url = 'https://github.com/...'
+  # - name = 'email'
+  #   url = 'mailto:...'
+
+[menu]
+  [[menu.main]]
+    identifier = 'home'
+    name = 'Home'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    identifier = 'posts'
+    name = 'Posts'
+    url = '/posts/'
+    weight = 2
+  [[menu.main]]
+    identifier = 'tags'
+    name = 'Tags'
+    url = '/tags/'
+    weight = 3
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    url = '/about/'
+    weight = 4
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    # Chroma syntax highlighting (PaperMod default). Style options: monokai, github, dracula, ...
+    style = 'github'
+    noClasses = false
+
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
