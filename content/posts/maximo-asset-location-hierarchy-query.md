@@ -107,4 +107,3 @@ start with
 ```
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/maximo-asset-location-hierarchy-query-adaab69a267a).*

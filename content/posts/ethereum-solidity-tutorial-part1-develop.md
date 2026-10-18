@@ -144,4 +144,3 @@ Please let me know if you have any issue / question on this tutorial.
 Please don’t
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/the-latest-ethereum-solidity-smart-contract-development-tutorial-part-1-develop-solidity-4ee15bdb1dee).*

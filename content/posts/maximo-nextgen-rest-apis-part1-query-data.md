@@ -187,4 +187,3 @@ In [next blog](https://jackyqiubao.medium.com/introduction-of-maximo-nextgen-res
 If you think this blog helping you, welcome to buy me a coffee through below Green *Give a Tip* button :)
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/introduction-of-maximo-nextgen-rest-apis-part-1-query-maximo-data-6c082087e8f2).*

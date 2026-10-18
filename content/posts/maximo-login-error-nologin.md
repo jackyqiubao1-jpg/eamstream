@@ -102,4 +102,3 @@ After Maximo application deploy complete, I can get my Maximo login page back. A
 If you think this blog helping you, welcome to buy me a coffee through below Green *Give a Tip* button :)
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/maximo-login-error-loginerror-jsp-group-system-key-nologin-89272015067).*

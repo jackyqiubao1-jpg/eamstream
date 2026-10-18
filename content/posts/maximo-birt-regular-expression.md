@@ -35,4 +35,3 @@ The regression expression is really powerful tool for handling the string. If yo
 If you think this blog helping you, welcome to buy me a coffee through below Give a Tip button after this blog :)
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/how-to-use-regular-expression-in-maximo-birt-report-6ddd209fa69c).*

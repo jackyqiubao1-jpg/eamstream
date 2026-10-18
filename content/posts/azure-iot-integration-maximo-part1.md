@@ -310,4 +310,3 @@ You can get full source code from GitHub:
 If you think this blog helping you, welcome to buy me a coffee through below Give a Tip button after this blog :)
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/azure-iot-integration-with-maximo-part-1-b141c4210db0).*

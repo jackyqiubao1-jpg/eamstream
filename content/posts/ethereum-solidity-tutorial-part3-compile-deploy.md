@@ -147,4 +147,3 @@ Congratulation! Now you know how to write the smart contract, and how to deploy 
 In the last article Part -4 , I will show you how to call solidity smart contract from web through web3.js. You cannot expect your users to use truffle to play Rock_Scissors _Paper game, right?:)
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/the-latest-ethereum-solidity-smart-contract-development-tutorial-part-3-compile-deploy-and-de653ff1367f).*

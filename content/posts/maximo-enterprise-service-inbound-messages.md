@@ -173,4 +173,3 @@ Let’s recap what we learn on this blog: We create an Object Structure to organ
 Hope you enjoy this blog, and feel free to leave your comments if you have any question / comment on it.
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/introduce-maximo-enterprise-service-to-accept-inbound-messages-from-other-systems-fcd4a9dce729).*

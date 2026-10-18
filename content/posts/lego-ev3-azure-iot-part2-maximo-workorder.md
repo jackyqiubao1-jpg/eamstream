@@ -188,4 +188,3 @@ Let’s recap what we learn in this experiment. We setup Object Structure (OS) t
 If you think this blog helping you, welcome to buy me a coffee through below Green *Give a Tip* button :)
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/turn-your-lego-ev3-robot-to-azure-iot-device-part-2-create-work-order-in-maximo-6f7427ffcbaf).*

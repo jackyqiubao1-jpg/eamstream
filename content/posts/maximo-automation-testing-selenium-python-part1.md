@@ -165,4 +165,3 @@ After you run the python code in VS Code, if it is successful pass the test case
 Let’s recap what I introduce in this blog: We setup development environment for automation testing development for Selenium with Python in VS Code. We develop python script to implement automation test case for Maximo login through Single Sign On (SSO). In next blog, we will explore the implementation of automation testing for more complicate test case to combine business function with integration.
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/part-1-maximo-automation-testing-through-selenium-with-python-dev-environment-setup-and-sso-6c048fbd25cb).*

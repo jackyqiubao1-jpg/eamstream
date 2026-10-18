@@ -275,4 +275,3 @@ In [next blog](https://jackyqiubao.medium.com/turn-your-lego-ev3-robot-to-azure-
 If you think this blog helping you, welcome to buy me a coffee through below Green *Give a Tip* button :)
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/turn-your-lego-ev3-robot-to-azure-iot-device-part-1-connect-to-iot-hub-through-mqtt-2584fb48397d).*

@@ -25,4 +25,3 @@ How about if the user who is locking the template already left the organization?
 It is really interested IBM doesn’t provide the function to allow maxadmin to unlock the start center, hope this function will be included in next release.
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/how-to-solve-the-issue-of-start-center-cannot-be-edited-for-being-modified-by-someone-b5555f81f36b).*

@@ -179,4 +179,3 @@ The default outbound message is XML format. Does Maximo Publish Channel support 
 Let’s recap what we have learned in previous section: We created an object structure to organize the data structure, and then create a publish channel to define the conditions to trigger the outbound message to send object structure data to external application. Configure external system to setup sequential outbound queue and end point to send outbound message to target system.
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/introduce-maximo-publish-channel-for-sending-outbound-messages-11b4bfdbe971).*

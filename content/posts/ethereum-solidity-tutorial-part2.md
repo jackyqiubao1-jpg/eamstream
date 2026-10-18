@@ -403,4 +403,3 @@ The playGame function will reveal game result if both of the player are provide 
 This function will expose external application (for example, javascript) to get all of the available hosted game list.
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/the-latest-ethereum-solidity-smart-contract-development-tutorial-part-2-develop-solidity-871f743ad113).*

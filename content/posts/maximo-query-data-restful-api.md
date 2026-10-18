@@ -339,4 +339,3 @@ https://yourmaximoserver/maxrest/rest/mbo/locations?location=PT100&_format=json&
 ```
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/how-to-query-data-in-maximo-through-restful-api-aef45c47c14e).*

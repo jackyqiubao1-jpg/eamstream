@@ -74,4 +74,3 @@ The following steps is to fix the above issue:
 If you think this blog helping you, welcome to buy me a coffee through below Give a Tip button after this blog :)
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/solution-for-maximo-birt-report-exception-of-mxreportscriptcontext-is-not-defined-320d36088f49).*

@@ -39,4 +39,3 @@ After this step, you should be able to see your hard drive space coming back.
 If you think this blog helping you, welcome to buy me a coffee through below Give a Tip button after this blog :)
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/how-to-shrink-docker-volume-after-delete-containers-images-in-windows-10-a92fa6b16f80).*

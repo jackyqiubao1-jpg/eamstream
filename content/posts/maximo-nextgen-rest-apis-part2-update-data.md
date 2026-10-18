@@ -230,4 +230,3 @@ Let’s recap what we discuss on the above experiments. We learn how to use Maxi
 If you think this blog helping you, welcome to buy me a coffee through below Green *Give a Tip* button :)
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/introduction-of-maximo-nextgen-rest-apis-part-2-update-maximo-data-e3db83751709).*

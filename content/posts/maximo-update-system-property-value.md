@@ -29,4 +29,3 @@ Now you can modify Global Value field. After modify the Global Value, Save the c
 ***Warning: Please make sure your fully understanding the impact of the system property you want to update before you make the change.***
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/maximo-how-to-update-system-property-value-8d7061196b36).*

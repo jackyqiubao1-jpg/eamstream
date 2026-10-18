@@ -23,4 +23,3 @@ After assign the current user mapped person to the person group which assigned t
 If you think this blog helping you, welcome to buy me a coffee through below Give a Tip button after this blog :)
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/maximo-workflow-error-bmxaa4299e-5938d95eea8b).*

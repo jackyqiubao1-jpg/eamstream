@@ -91,4 +91,3 @@ Open Asset application in Maximo, search for the asset created / updated through
 In this blog, we learn how to use automation script to implement a simple customize logic for processing inbound message in Maximo Enterprise Service. Of cause, you can expand this option to implement more complicate logic through automation script in Maximo.
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/customized-inbound-message-processing-logic-for-maximo-enterprise-service-through-automation-script-1d07d3f9d425).*

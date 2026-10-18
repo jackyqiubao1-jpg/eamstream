@@ -55,4 +55,3 @@ On your publish channel for your outbound, set this customized event class psdi.
 Publish your java class to ear file and restart your Maximo applicaiton. Test inbound to see if it will trigger the outbound publish channel with this customized event class.
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/what-is-maximo-recurrence-of-inbound-transactions-and-how-to-use-it-1f50bbf0c5aa).*

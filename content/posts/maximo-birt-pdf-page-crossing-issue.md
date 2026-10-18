@@ -29,4 +29,3 @@ Hope this article can give you a hint when you have the similar issue on BIRT re
 If you think this blog helping you, welcome to buy me a coffee through below Give a Tip button after this blog :)
 
 ---
-*Originally published on [Medium](https://medium.com/@jackyqiubao/maximo-birt-report-pdf-format-page-crossing-issue-dc590b4d5772).*
