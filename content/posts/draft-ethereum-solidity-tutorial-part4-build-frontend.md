@@ -8,11 +8,11 @@ draft: false
 
 In previous serial articles, you learned how to setup development environment, built a solidity smart contract in truffle, and deployed it to a testing blockchain network ganache. You can refer to the following links for the previous sessions:
 
-[(Part -1) — Solidity Smart Contract development environment setup for Visual Studio Code with Truffle framework](https://medium.com/@jackyqiubao/the-latest-ethereum-solidity-smart-contract-development-tutorial-part-1-develop-solidity-4ee15bdb1dee)
+[(Part -1) — Solidity Smart Contract development environment setup for Visual Studio Code with Truffle framework](/posts/ethereum-solidity-tutorial-part1-develop/)
 
-[(Part -2) — Develop solidity smart contract in truffle](https://medium.com/@jackyqiubao/the-latest-ethereum-solidity-smart-contract-development-tutorial-part-2-develop-solidity-871f743ad113)
+[(Part -2) — Develop solidity smart contract in truffle](/posts/ethereum-solidity-tutorial-part2/)
 
-[(Part -3) — Compile, Deploy and Test solidity smart contract in Truffle](https://medium.com/@jackyqiubao/the-latest-ethereum-solidity-smart-contract-development-tutorial-part-3-compile-deploy-and-de653ff1367f)
+[(Part -3) — Compile, Deploy and Test solidity smart contract in Truffle](/posts/ethereum-solidity-tutorial-part3-compile-deploy/)
 
 Now it is time for us to learn how to interact with our solidity smart contract in javascript through Web3.js.
 

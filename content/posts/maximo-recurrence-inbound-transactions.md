@@ -50,7 +50,7 @@ public class StopRecurEventFilterextends MaximoEventFilter
 
 On your publish channel for your outbound, set this customized event class psdi.iface.app.common.StopRecurEventFilter on in the Event Filter Class field.
 
-![](https://cdn-images-1.medium.com/max/800/1*h5vdcinIB_imDtN8dqca0w.png)
+![](/images/1*h5vdcinIB_imDtN8dqca0w.png)
 
 Publish your java class to ear file and restart your Maximo applicaiton. Test inbound to see if it will trigger the outbound publish channel with this customized event class.
 

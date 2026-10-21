@@ -6,7 +6,7 @@ draft: false
 ---
 
 
-In previous part 1 blog, we demonstrated how to connect Lego EV3 to Azure IoT hub through MQTT, and send EV3 color sensor data to IoT hub. In this blog, we will experiment to update Azure Function which we built on blog “[Azure IoT integration with Maximo — Part 2](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-2-1200d2e2ad5b?sk=b79fe9dca04db0ce3d69e27f9471a571)” to create work order in Maximo through Maximo NextGen Rest API based on the color sensor data sent from Lego EV3.
+In previous part 1 blog, we demonstrated how to connect Lego EV3 to Azure IoT hub through MQTT, and send EV3 color sensor data to IoT hub. In this blog, we will experiment to update Azure Function which we built on blog “[Azure IoT integration with Maximo — Part 2](/posts/azure-iot-integration-maximo-part2/)” to create work order in Maximo through Maximo NextGen Rest API based on the color sensor data sent from Lego EV3.
 
 The following is the high level of the steps we will following in this experiment:
 
@@ -18,35 +18,35 @@ The following is the high level of the steps we will following in this experimen
 
 Open Asset application in Maximo, click “New Asset” Link or button. Input EV3 as ASSETNUM, and then Save the change.
 
-![](https://cdn-images-1.medium.com/max/800/1*aDqqzMF-ZbnFMXKLeutpSw.png)
+![](/images/1*aDqqzMF-ZbnFMXKLeutpSw.png)
 
 Change Asset Status to be Active
 
-![](https://cdn-images-1.medium.com/max/800/1*IlMG_oqdiQuWtxigpgtnaA.png)
+![](/images/1*IlMG_oqdiQuWtxigpgtnaA.png)
 
 Open Object Structure application in Maximo, click “New Asset” Link or button to create a new Object Structure. Object Structure (OS) is composed by Maximo Business Objects (MBO). OS is the foundation in Maximo Integration Framework, you can understand MBO as table in database, and OS as view in database which combines multiple tables (MBOs) to form the data you would like to explore to external system for integration. We will create an OS called MXEV3WO for this experiment.
 
-![](https://cdn-images-1.medium.com/max/800/1*c6nQU2sJKBG99blbEcKcww.png)
+![](/images/1*c6nQU2sJKBG99blbEcKcww.png)
 
 In Source Objects section, we will use two MBOs for this MXEV3WO OS: Workorder and WOActivity. In the blew steps, we will configure this OS to allow us create a work order and a task through Maximo NextGen Rest API.
 
 Click New Row button under Source Objects section, select WORKORDER MBO from the popup list.
 
-![](https://cdn-images-1.medium.com/max/800/1*l17wLmvW5HW5eVE3jIsA7g.png)
+![](/images/1*l17wLmvW5HW5eVE3jIsA7g.png)
 
 Click New Row button again, select WOActivity MBO from the list, select WORKORDER at Parent Object field, and pick up NEWACTIVITY in the Relationship list. It will join WOActivity and Workorder MBOs through NEWACTIVITY relationship. If you are familiar with relationship database sql query, it is similar to use left join the Workorder and WOActivity tables in the sql query.
 
-![](https://cdn-images-1.medium.com/max/800/1*WcmBkVjBxT7DwM0UXBq5eg.png)
+![](/images/1*WcmBkVjBxT7DwM0UXBq5eg.png)
 
 The purpose we build this OS is to use it as the structure to create workorder, and a new task under this work through Maximo NextGen Rest API.
 
 #### 2. Update Azure function
 
-Save above changes in Maximo, open Azure portal to open Azure Function. We will update Azure Function which we built in my previous serial blogs “[Azure IoT integration with Maximo — Part 1](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-1-b141c4210db0?sk=5345c390bd704aff8349231bbef7ec7d)” and “[Part 2](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-2-1200d2e2ad5b?sk=b79fe9dca04db0ce3d69e27f9471a571)”. If you don’t get chance to read it yet, please follow the instruction on that serial blogs to create an Azure Function “EventGridDataEventParser” first. I will not repeat the same steps in this blog.
+Save above changes in Maximo, open Azure portal to open Azure Function. We will update Azure Function which we built in my previous serial blogs “[Azure IoT integration with Maximo — Part 1](/posts/azure-iot-integration-maximo-part1/)” and “[Part 2](/posts/azure-iot-integration-maximo-part2/)”. If you don’t get chance to read it yet, please follow the instruction on that serial blogs to create an Azure Function “EventGridDataEventParser” first. I will not repeat the same steps in this blog.
 
 Open “EventGridDataEventParser” Azure function, click on the “Code + Test”
 
-![](https://cdn-images-1.medium.com/max/800/1*ZpbF5ytqy1OwKpR2uvuGRA.png)
+![](/images/1*ZpbF5ytqy1OwKpR2uvuGRA.png)
 
 Modify the “EventGridDataEventParser” Azure function to be following code. The comments in the code should explain the logic of the code.
 
@@ -149,39 +149,39 @@ Update {replace with your maximo server name} to be your Maximo server name.
 
 Update* *{User credentials encoded to base64 format} to be your maximo user account and password in base64 format encode. For example, if your maximo user account is maxadmin, password is maxadmin, the user credential format is *maxadmin:maxadmin. *And then use base64 encryption tool (for example [https://www.base64encode.org/](https://www.base64encode.org/)) to encode the string *maxadmin:maxadmin. *The encode string is *bWF4YWRtaW46bWF4YWRtaW4=*
 
-![](https://cdn-images-1.medium.com/max/800/0*GqAhWKxZZn2YfHqa.png)
+![](/images/0*GqAhWKxZZn2YfHqa.png)
 
 Save the change of run.csx file. Click “Monitor” in the left panel, and then click Logs tab to open the log window.
 
-![](https://cdn-images-1.medium.com/max/800/0*0WBSpIytQcDvTvpm.png)
+![](/images/0*0WBSpIytQcDvTvpm.png)
 
 Turn your Lego EV3 on and connect to network, and open VS Code to open folder we built for EV3 in previous blog “Turn Your Lego EV3 Robot to Azure IoT Device — Part 1”. Connect EV3 to VS code through click “Click here to connect to a device” under EV3DEV Device Browser.
 
-![](https://cdn-images-1.medium.com/max/800/1*wog0Drw1351xSk0P-5zBXA.png)
+![](/images/1*wog0Drw1351xSk0P-5zBXA.png)
 
 Select your EV3 Device from the list, once it is connected, expand the folder node to locate main.py file
 
-![](https://cdn-images-1.medium.com/max/800/1*u774OwIbtXLboLfS_HgbfA.png)
+![](/images/1*u774OwIbtXLboLfS_HgbfA.png)
 
 Right click on main.py file, select “Run” to execute the main.py in Ev3 device. On the VS Code output window will be able to see the log as:
 
-![](https://cdn-images-1.medium.com/max/800/1*c7IIEjL75aqLzu5JteZfpw.png)
+![](/images/1*c7IIEjL75aqLzu5JteZfpw.png)
 
 Put some red color object under EV3 Color sensor
 
-![](https://cdn-images-1.medium.com/max/800/0*YckX9nR8mezU-5pI)
+![](/images/0*YckX9nR8mezU-5pI.jpeg)
 
 You should be able to see some red color telemetry data to be sent to IoT hub. Let’s go back to Azure Function Monitor Log tab, we should be able see the log
 
-![](https://cdn-images-1.medium.com/max/800/1*UVAP0modyxMGpY7-wOcx-A.png)
+![](/images/1*UVAP0modyxMGpY7-wOcx-A.png)
 
 And if we open Work Order Tracking application in Maximo, filter wonum with “WO_EV3%”, we will be able to find a work order was created through Azure Function.
 
-![](https://cdn-images-1.medium.com/max/800/1*QW3rTCQvtxfxNxv_noChrA.png)
+![](/images/1*QW3rTCQvtxfxNxv_noChrA.png)
 
 Click the work order link to open the work order, and then click Plan tab, you will see there is a Task being created under this work order.
 
-![](https://cdn-images-1.medium.com/max/800/1*iTqaM0PCyuaOnzvL08enhw.png)
+![](/images/1*iTqaM0PCyuaOnzvL08enhw.png)
 
 Let’s recap what we learn in this experiment. We setup Object Structure (OS) to accept payload to create work order and task inside it in Maximo, in Azure Function create work order through Maximo NextGen Rest API when we receive telemetry color data is red from Lego EV3. Of course you can extend this experiment to your real business case to build Azure IoT solution integration with Maximo or your EAM solution.
 

@@ -14,7 +14,7 @@ The REST API exposes business objects and integration object structures as REST 
 
 The following diagram provides an overview of how the REST API handles requests.
 
-![](https://cdn-images-1.medium.com/max/800/0*6VRf0LPFc9cZ_1zE.gif)
+![](/images/0*6VRf0LPFc9cZ_1zE.gif)
 
 As you can see from the above diagram, to allow external system to query data from Maximo, you need to create your Object Structure (OS) to expose the business data you would like to allow external system to call, or external system can access to Maximo Business Object (MBO) data through Restful API if there is not complex data requirement. When an external consumer initiates a request, a REST API controller directs the resource request to the appropriate resource handler. The resource handler interacts with resources to execute the request. When the request is complete, the resulting resource or resource collection is processed by the resource serializer. The resource serializer returns the representation as the resource response. Serializers are provided for XML and JSON.
 

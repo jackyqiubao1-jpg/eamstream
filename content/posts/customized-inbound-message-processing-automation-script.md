@@ -6,9 +6,9 @@ draft: false
 ---
 
 
-*If you don’t have Medium account, you can read this blog through this *[*friend link*](https://jackyqiubao.medium.com/customized-inbound-message-processing-logic-for-maximo-enterprise-service-through-automation-script-1d07d3f9d425?sk=e828db62e7c8aea1cff6b09453419031)*.*
+*If you don’t have Medium account, you can read this blog through this *[*friend link*](/posts/customized-inbound-message-processing-automation-script/)*.*
 
-In my previous blog “[Introduce Maximo Enterprise Service to Accept Inbound Messages from Other Systems](https://medium.com/eamstream/introduce-maximo-enterprise-service-to-accept-inbound-messages-from-other-systems-fcd4a9dce729)”, I introduced how to configure Maximo Enterprise Service for accepting inbound messages. In this blog, we will discuss how to implement customized logic in Maximo Enterprise Service through automation script to meet some special requirement.
+In my previous blog “[Introduce Maximo Enterprise Service to Accept Inbound Messages from Other Systems](/posts/maximo-enterprise-service-inbound-messages/)”, I introduced how to configure Maximo Enterprise Service for accepting inbound messages. In this blog, we will discuss how to implement customized logic in Maximo Enterprise Service through automation script to meet some special requirement.
 
 ### **1. Automation Script VS Java**
 
@@ -28,17 +28,17 @@ Based on above requirement, we can build a synchronized Enterprise Service in Ma
 
 **Step 1: Create Object Structure, Enterprise Service and External System**
 
-Follow the steps in Implementation section on [this Enterprise Services introduction blog](https://medium.com/eamstream/introduce-maximo-enterprise-service-to-accept-inbound-messages-from-other-systems-fcd4a9dce729) to create Object Structure, Enterprise Service and External System.
+Follow the steps in Implementation section on [this Enterprise Services introduction blog](/posts/maximo-enterprise-service-inbound-messages/) to create Object Structure, Enterprise Service and External System.
 
 **Step 2: Create Automation Script for Enterprise Services Request User Exist**
 
 Go to System Configuration => Platform Configuration => Automation Scripts. Click on Select Action=> Create=>Script for Integration. Select Enterprise Service option on the popup create script window, and select the Enterprise service “ESASSET” which created on step 1. Select the other options as highlighted on the below screenshot.
 
-![](https://cdn-images-1.medium.com/max/800/1*BudbQm22PCgXImSAIpGyLg.png)
+![](/images/1*BudbQm22PCgXImSAIpGyLg.png)
 
 On the Script Language, I selected jython, which is Python in Java, providing the benefit of writing the Python script which can run on the JVM and access to classes written in Java. You can also choose other script language in the following list which you are familiar to:
 
-![](https://cdn-images-1.medium.com/max/800/1*mRRKVM4RrmJA1XPDyWXTBg.png)
+![](/images/1*mRRKVM4RrmJA1XPDyWXTBg.png)
 
 At the bottom of this Create Script for Integration page, there is a script box. Type in the following script:
 
@@ -62,7 +62,7 @@ The comments in the code already explain the code logic. Click “Create” butt
 
 **Step 3: Validate the Enterprise Service Request Automation Script**
 
-Open the postman, refer to the “**Step 4: Verify the configuration” **on my previous blog “[Introduce Maximo Enterprise Service to Accept Inbound Messages from Other Systems](https://medium.com/eamstream/introduce-maximo-enterprise-service-to-accept-inbound-messages-from-other-systems-fcd4a9dce729)”, to setup postman, use the following payload to test the automation script:
+Open the postman, refer to the “**Step 4: Verify the configuration” **on my previous blog “[Introduce Maximo Enterprise Service to Accept Inbound Messages from Other Systems](/posts/maximo-enterprise-service-inbound-messages/)”, to setup postman, use the following payload to test the automation script:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -80,11 +80,11 @@ Open the postman, refer to the “**Step 4: Verify the configuration” **on my 
 
 After you execute the payload, you should see the following response from Maximo:
 
-![](https://cdn-images-1.medium.com/max/800/1*-t6uubVMuXjxqwVM-NpxLQ.png)
+![](/images/1*-t6uubVMuXjxqwVM-NpxLQ.png)
 
 Open Asset application in Maximo, search for the asset created / updated through the payload, you should be able to see the asset description automatically appended system time stamp to it.
 
-![](https://cdn-images-1.medium.com/max/800/1*Ft34gzngVoxpSGdgEwZTbQ.png)
+![](/images/1*Ft34gzngVoxpSGdgEwZTbQ.png)
 
 ### **Summary:**
 

@@ -6,9 +6,9 @@ draft: false
 ---
 
 
-In the previous [part 1](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-1-b141c4210db0?source=friends_link&sk=5345c390bd704aff8349231bbef7ec7d) blog, we built Azure IoT Hub in Azure cloud, developed an IoT device simulator running in local machine to connect and send ramdom temperature data to Azure IoT Hub , created an Azure function, and configure Azure event grid to pass through Azure IoT Hub telemetry data (temperature) to Azure Function. In Azure Function, we parsed event data to retrieve device and temperature information from event data and log them. In this part 2 blog, we will continue to configure and build the rest of the components inside the red rectangle in the following architecture diagram.
+In the previous [part 1](/posts/azure-iot-integration-maximo-part1/) blog, we built Azure IoT Hub in Azure cloud, developed an IoT device simulator running in local machine to connect and send ramdom temperature data to Azure IoT Hub , created an Azure function, and configure Azure event grid to pass through Azure IoT Hub telemetry data (temperature) to Azure Function. In Azure Function, we parsed event data to retrieve device and temperature information from event data and log them. In this part 2 blog, we will continue to configure and build the rest of the components inside the red rectangle in the following architecture diagram.
 
-![](https://cdn-images-1.medium.com/max/800/1*URTLMTnozmN8Sa7UAuX9wg.png)
+![](/images/1*URTLMTnozmN8Sa7UAuX9wg.png)
 
 The following are the high level of steps to configure asset and meter data in Maximo, update Azure function to call Maximo NextGen Restful API to post temperature data which is generated from IoT Device Simulator to Maximo.
 
@@ -21,23 +21,23 @@ The following steps assume that you have Maximo environment with a maxadmin user
 
 Login maximo, and open Asset application.
 
-![](https://cdn-images-1.medium.com/max/800/1*P4Vr-DNbcrPhS7XQo_txRw.png)
+![](/images/1*P4Vr-DNbcrPhS7XQo_txRw.png)
 
-Click New Asset or “+” icon at the top tool bar, to open new Asset page. For assetnum field, we will use the same value of DeviceID we created in Azure IoT Device in [Part 1](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-1-b141c4210db0?source=friends_link&sk=5345c390bd704aff8349231bbef7ec7d), which is TempSimulator. Fill in the rest of required fields on the new Asset page, click “Save” button.
+Click New Asset or “+” icon at the top tool bar, to open new Asset page. For assetnum field, we will use the same value of DeviceID we created in Azure IoT Device in [Part 1](/posts/azure-iot-integration-maximo-part1/), which is TempSimulator. Fill in the rest of required fields on the new Asset page, click “Save” button.
 
-![](https://cdn-images-1.medium.com/max/800/1*DGHhcZlFUlpibQYpxHtjxg.png)
+![](/images/1*DGHhcZlFUlpibQYpxHtjxg.png)
 
 Click Meters tab, and then click “New Row” button at the end of the page.
 
-![](https://cdn-images-1.medium.com/max/800/1*4Vtsfy7hxNHD9CMZokWtyw.png)
+![](/images/1*4Vtsfy7hxNHD9CMZokWtyw.png)
 
 Select “TEMP-C” meter to the meter field to assign TEMP-C meter to the Asset TempSimulator we created in previous step. And save the change.
 
-![](https://cdn-images-1.medium.com/max/800/1*R-eoRRByGzBJ1Qj-uoEVxA.png)
+![](/images/1*R-eoRRByGzBJ1Qj-uoEVxA.png)
 
 Change Asset TempSimulator status to be Active by click “Change Status” under Common Actions section in the left panel, on the popup page, select Active as new status, and then click “OK” button to save the status change.
 
-![](https://cdn-images-1.medium.com/max/800/1*UJkJyvTvvdV34MMKq2YfuQ.png)
+![](/images/1*UJkJyvTvvdV34MMKq2YfuQ.png)
 
 Now we created a new Asset with assetnum=TempSimulator (Same as device ID in Azure IoT Device), and assign a new meter “TEMP-C” to this asset.
 
@@ -50,7 +50,7 @@ An object structure provides the message content for channels and services and e
 
 We will use out of box OS MXASSET in Maximo to post temperature data through Maximo NextGen Restful API in Azure function. The following is the MXASSET OS setting in Maximo:
 
-![](https://cdn-images-1.medium.com/max/800/1*v3dH2e0X29FtzA505DnXTw.png)
+![](/images/1*v3dH2e0X29FtzA505DnXTw.png)
 
 (2) Maximo Integration Framework (MIF): The Maximo Integration Framework (MIF) is an integral part of the Tivoli Process Automation Engine (TPAE) that allows the synchronization and integration of data and of applications between TPAE and external systems in real time or batch mode by using a variety of communication protocols.
 
@@ -63,11 +63,11 @@ starting 7602 version. The NextGen apis are often referred to as the REST/JSON a
 
 2.** Update Azure Function to post temperature data which receive from Azure Event Grid to Maximo Asset Reading through Object Structure MXASSET Restful API.**
 
-In the following section, we will update Azure function code in [Part 1](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-1-b141c4210db0?source=friends_link&sk=5345c390bd704aff8349231bbef7ec7d)to post temperate data from IoT device simulator to Maximo Asset meter reading through object structure MXASSET restful API.
+In the following section, we will update Azure function code in [Part 1](/posts/azure-iot-integration-maximo-part1/)to post temperate data from IoT device simulator to Maximo Asset meter reading through object structure MXASSET restful API.
 
-Open Azure portal and locate Azure function EventGridDataEventParser we built in [part 1](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-1-b141c4210db0?source=friends_link&sk=5345c390bd704aff8349231bbef7ec7d).
+Open Azure portal and locate Azure function EventGridDataEventParser we built in [part 1](/posts/azure-iot-integration-maximo-part1/).
 
-![](https://cdn-images-1.medium.com/max/800/1*JB1hstSucezmLR_QlFoU7Q.png)
+![](/images/1*JB1hstSucezmLR_QlFoU7Q.png)
 
 Click “Code + Test” in the left panel, update the run.csx code as the following:
 
@@ -194,25 +194,25 @@ Update {replace with your maximo server name} to be your Maximo server name.
 
 Update* *{User credentials encoded to base64 format} to be your maximo user account and password in base64 format encode. For example, if your maximo user account is maxadmin, password is maxadmin, the user credential format is *maxadmin:maxadmin. *And then use base64 encryption tool (for example [https://www.base64encode.org/](https://www.base64encode.org/)) to encode the string *maxadmin:maxadmin. *The encode string is *bWF4YWRtaW46bWF4YWRtaW4=*
 
-![](https://cdn-images-1.medium.com/max/800/1*gYhBL5FFeu6ksH9Jnh9BnQ.png)
+![](/images/1*gYhBL5FFeu6ksH9Jnh9BnQ.png)
 
 Save the change of run.csx file. Click “Monitor” in the left panel, and then click Logs tab to open the log window.
 
-![](https://cdn-images-1.medium.com/max/800/1*kvwl1MMvAGEtsPGiFXk2xg.png)
+![](/images/1*kvwl1MMvAGEtsPGiFXk2xg.png)
 
 Run the IoT device simulator python code in the local machine to send random template data to Azure IoT hub.
 
-![](https://cdn-images-1.medium.com/max/800/1*FKDlkvmg-ba_nIwkvhccpQ.png)
+![](/images/1*FKDlkvmg-ba_nIwkvhccpQ.png)
 
 On the Azure function monitor logs window, we will receive these event data from Azure IoT hub through Azure Event Grid, and are parsed by the code in Azure function EventGridDataEventParser:
 
-![](https://cdn-images-1.medium.com/max/800/1*7hlc5PGEyvdfe0xKaqf44w.png)
+![](/images/1*7hlc5PGEyvdfe0xKaqf44w.png)
 
 And open Asset application in Maximo, locate asset “TempSimulator”, click “Manage Meter Read History” under “More Action” section, and click “Characteristic and Gauge Meter Readings” tab, you will see the temperature data from IoT device simulator are posted to Maximo.
 
-![](https://cdn-images-1.medium.com/max/800/1*5UKyzmNBWNA7PlC7vtjNNA.png)
+![](/images/1*5UKyzmNBWNA7PlC7vtjNNA.png)
 
-In the [part 1](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-1-b141c4210db0?source=friends_link&sk=5345c390bd704aff8349231bbef7ec7d) & this part 2 blogs, we leveraged Azure IoT solution to created IoT device simulator in local machine to generate random temperature data, connect and send them to Azure IoT hub, through Azure Event Grid to pass telemetry to Azure Function. In Azure Function, call Maximo NexGen Rest API to post telemetry data to Maximo Asset meter reading.
+In the [part 1](/posts/azure-iot-integration-maximo-part1/) & this part 2 blogs, we leveraged Azure IoT solution to created IoT device simulator in local machine to generate random temperature data, connect and send them to Azure IoT hub, through Azure Event Grid to pass telemetry to Azure Function. In Azure Function, call Maximo NexGen Rest API to post telemetry data to Maximo Asset meter reading.
 
 Of course this POC can be expanded to add data analysis module in Azure Cloud, for example, all of the telemetry data will be stored in Azure Cosmos DB, build Azure machine learning module to analyze the telemetry data in Azure Cosmos, raise work order in Maximo through Maximo NextGen Restful API base on analysis result if need. This expansion solution will be covered in my future blog.
 

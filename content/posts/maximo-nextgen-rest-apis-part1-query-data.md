@@ -6,9 +6,9 @@ draft: false
 ---
 
 
-I received couple private messages from audiences for my previous blogs relate [Azure IoT integration with Maximo](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-1-b141c4210db0?sk=5345c390bd704aff8349231bbef7ec7d) to ask for more detail on the instruction on Maximo NextGen Rest API. I would like to have these serial blogs to introduce how to query and update data through Maximo NextGen Rest API. In this part 1 blog, I will provide the information on Maximo NextGen Rest API, and how to construct Object Structure (OS) in Maximo and query OS data through Maximo NextGen Rest API. In [Part 2 blog](https://jackyqiubao.medium.com/introduction-of-maximo-nextgen-rest-apis-part-2-update-maximo-data-e3db83751709?sk=b00d77be3db4a40f1c87b408984a2b4e), I will leverage the same OS in part 1 blog to update Maximo data through NextGen Rest API. After you walk through the experiment of these serial blogs, you should have clear picture on how to query and update Maximo data through IBM recommended approach NextGen Rest API.
+I received couple private messages from audiences for my previous blogs relate [Azure IoT integration with Maximo](/posts/azure-iot-integration-maximo-part1/) to ask for more detail on the instruction on Maximo NextGen Rest API. I would like to have these serial blogs to introduce how to query and update data through Maximo NextGen Rest API. In this part 1 blog, I will provide the information on Maximo NextGen Rest API, and how to construct Object Structure (OS) in Maximo and query OS data through Maximo NextGen Rest API. In [Part 2 blog](/posts/maximo-nextgen-rest-apis-part2-update-data/), I will leverage the same OS in part 1 blog to update Maximo data through NextGen Rest API. After you walk through the experiment of these serial blogs, you should have clear picture on how to query and update Maximo data through IBM recommended approach NextGen Rest API.
 
-In one of my previous blogs “[How to query data in Maximo through Restful API](https://jackyqiubao.medium.com/how-to-query-data-in-maximo-through-restful-api-aef45c47c14e?sk=7e2ab42daa1a0edf2f82563240e5c431)”, the rest APIs on this blog were released after Maximo Asset Management version 7.1. From [IBM Maximo](https://sedintechnologies.com/maximo-enterprise-asset-management/)version 7.6.0.2 onwards, IBM has provided a new REST APIs call NextGen Rest API which are a complete rewrite of the existing REST APIs. There are numerous benefits of using the NextGen APIs with a few highlighted here:
+In one of my previous blogs “[How to query data in Maximo through Restful API](/posts/maximo-query-data-restful-api/)”, the rest APIs on this blog were released after Maximo Asset Management version 7.1. From [IBM Maximo](https://sedintechnologies.com/maximo-enterprise-asset-management/)version 7.6.0.2 onwards, IBM has provided a new REST APIs call NextGen Rest API which are a complete rewrite of the existing REST APIs. There are numerous benefits of using the NextGen APIs with a few highlighted here:
 
 ● Significantly enhanced support for querying maximo data — subselects, related object queries, multi-attribute text search, custom queries (java/scripting).
 
@@ -34,7 +34,7 @@ In one of my previous blogs “[How to query data in Maximo through Restful API]
 
 The following is high level overview of the architecture
 
-![](https://cdn-images-1.medium.com/max/800/1*bCecrQuhaYw9sob6g_C-Cg.png)
+![](/images/1*bCecrQuhaYw9sob6g_C-Cg.png)
 
 We will have the experiment on this blog in the following sections about Authentication, Object Structure and Options on NextGen APIs query.
 
@@ -48,7 +48,7 @@ Maximo NextGen Rest APIs support 2 authentication approaches: Maximo native auth
 
 This is where Maximo owns the user repository along with the user credentials. Maximo is responsible for authenticating the incoming REST call. The REST api expects the HTTP request with a “maxauth” request header that has a base64 encoded userid:password. For example, if your maximo user account is maxadmin, password is maxadmin, the user credential format is *maxadmin:maxadmin. *And then use base64 encryption tool (for example [https://www.base64encode.org/](https://www.base64encode.org/)) to encode the string *maxadmin:maxadmin. *The encode string is *bWF4YWRtaW46bWF4YWRtaW4=*
 
-![](https://cdn-images-1.medium.com/max/800/0*BYSbVF8NZ2efCaOK.png)
+![](/images/0*BYSbVF8NZ2efCaOK.png)
 
 We will use this authentication approach in our experiment on this blog.
 
@@ -66,15 +66,15 @@ In the next sections, assume you would like to explore Asset data along with Ass
 
 Login Maximo, open Object Structure Application, click “New Object Structure” Menu on the left panel or Create button on the tool bar. Fill out object structure name as MXASSETSPEC, and other required field.
 
-![](https://cdn-images-1.medium.com/max/800/1*4bMpUfyXY9UgvBUMWjg8ew.png)
+![](/images/1*4bMpUfyXY9UgvBUMWjg8ew.png)
 
 Under Source Object section, click “New Row” Button, select ASSET from the Object lookup list.
 
-![](https://cdn-images-1.medium.com/max/800/1*hCsKAgTeGrBkzx_aW0R9FQ.png)
+![](/images/1*hCsKAgTeGrBkzx_aW0R9FQ.png)
 
 Click “New Row” button again, select ASSETSPEC from the Object lookup list. Pick Asset as Parent object, and select ASSETSPEC relationship from relationship lookup list.
 
-![](https://cdn-images-1.medium.com/max/800/1*tBP_5UA51C6YPQxTNus0cw.png)
+![](/images/1*tBP_5UA51C6YPQxTNus0cw.png)
 
 Save the above change. We built an OS with Asset and Asset Specifications structure, which we can leverage to query the asset with its specification information in next step.
 
@@ -82,7 +82,7 @@ Save the above change. We built an OS with Asset and Asset Specifications struct
 
 Open Postman, create a new tab. Click headers, at the blank row, input “maxauth” at the key column, please refer to Maximo native authentication section to get your base64 encode string of your Maximo login account and password, and then paste it to the value column.
 
-![](https://cdn-images-1.medium.com/max/800/1*y0W7oQmXcODp2IquoqM9gA.png)
+![](/images/1*y0W7oQmXcODp2IquoqM9gA.png)
 
 Change the {[your maximo server url](http://stellarmaximolab.eastus.cloudapp.azure.com:9080/maximo/oslc/os/mxassetspec?lean=1)} to your maximo server name and port, and put it to the postman url.
 
@@ -90,7 +90,7 @@ Change the {[your maximo server url](http://stellarmaximolab.eastus.cloudapp.azu
 
 Please Make sure the request action is GET, and click “Send” button after the url box. You should receive 200 return status code and the response payload in the response Body section. I will explain more detail on the url and response content in the next section.
 
-![](https://cdn-images-1.medium.com/max/800/1*BFJEpqtgY7ju3v_SDb4nyg.png)
+![](/images/1*BFJEpqtgY7ju3v_SDb4nyg.png)
 
 In the response content, it returns MXASSETSPEC resource (which is based on the ASSET Mbo in Maximo) — each member pointing to an asset record with a “href” that contains the link to get the details for that MXASSETSPEC. Any collection resource in this REST api will follow this same basic structure.
 
@@ -132,7 +132,7 @@ For the second requirement, we can use query parament oslc.where to implement it
 
 Apart from “=” operator in *oslc.where, *we can use below operators to achieve more complicate query.
 
-![](https://cdn-images-1.medium.com/max/800/1*3gTF8Qe1JJpcBpt8BLIwVQ.png)
+![](/images/1*3gTF8Qe1JJpcBpt8BLIwVQ.png)
 
 For the 3rd requirement, to specify what attributes (fields) we would like to return from the API, we can identify it in *oslc.oslc.orderBy* query parameter. The format for this is
 
@@ -148,7 +148,7 @@ Now let’s consolidate what we discussed above into the url. Change the {[your 
 
 After click Send button after the url box in Postman, you should receive response similar to this:
 
-![](https://cdn-images-1.medium.com/max/800/1*iJZsL907rHzUMN8DWNt_4Q.png)
+![](/images/1*iJZsL907rHzUMN8DWNt_4Q.png)
 
 (2) Fetch data from related objects
 
@@ -162,13 +162,13 @@ Let’s change url in postman as following to return Asset’s location informat
 
 We will get location information at location section in the response content. Please keep in mind we don’t have Locations MBO in the MXASSETSPEC OS we built before.
 
-![](https://cdn-images-1.medium.com/max/800/1*awBNXBnRav5Iz-sUPdzrVA.png)
+![](/images/1*awBNXBnRav5Iz-sUPdzrVA.png)
 
 (3) Page data
 
 Paging of data is good fit to the scenario when your query return a big amount of the data. Query parameter *oslc.pageSize* is used to specify the max records to fetch for a page. This causes the responseInfo object to have the nextPage , previousPage , pagenum , totalCount (optional) and totalPages (optional) properties to describe page navigation information. If we don’t specify this pagesize query parameter in our query, the default page size setting will use the setting in OS. An attribute in the Object structure application to set the auto-paging threshold.
 
-![](https://cdn-images-1.medium.com/max/800/1*q1uGMZjQbL_t419KpZHDdQ.png)
+![](/images/1*q1uGMZjQbL_t419KpZHDdQ.png)
 
 > Note:This field AUTOPAGINGTHRESHOLD was available on backend in Maximo 7.6.1.2.
 
@@ -178,11 +178,11 @@ Let’s modify our previous url to be the following to add pagesize query parane
 
 We will find page information at the end of response.
 
-![](https://cdn-images-1.medium.com/max/800/1*2Id2CXvTGZ155mC6JVnITA.png)
+![](/images/1*2Id2CXvTGZ155mC6JVnITA.png)
 
 Now let’s recap what we discuss on this blog. I introduced authentication of Maximo NextGen Rest APIs, how to build Object Structure (OS) in Maximo, and how to leverage query parameters to query OS data through NextGen Rest APIs.
 
-In [next blog](https://jackyqiubao.medium.com/introduction-of-maximo-nextgen-rest-apis-part-2-update-maximo-data-e3db83751709?sk=b00d77be3db4a40f1c87b408984a2b4e), I will introduce how to update Maximo data through NextGen Rest APIs.
+In [next blog](/posts/maximo-nextgen-rest-apis-part2-update-data/), I will introduce how to update Maximo data through NextGen Rest APIs.
 
 If you think this blog helping you, welcome to buy me a coffee through below Green *Give a Tip* button :)
 

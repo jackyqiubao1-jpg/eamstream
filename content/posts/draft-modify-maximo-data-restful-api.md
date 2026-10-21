@@ -6,7 +6,7 @@ draft: false
 ---
 
 
-In my previous blog I introduced [how to query Maximo data through Restful API](https://jackyqiubao.medium.com/how-to-query-data-in-maximo-through-restful-api-aef45c47c14e), in this blog, I will show you how to modify (Create, Update, Delete) Maximo data through Restful API.
+In my previous blog I introduced [how to query Maximo data through Restful API](/posts/maximo-query-data-restful-api/), in this blog, I will show you how to modify (Create, Update, Delete) Maximo data through Restful API.
 
 You can modify Maximo resources by using the HTTP PUT, POST, and DELETE methods with Restful API. The PUT, POST, and DELETE methods can be used to modify business object resources and object structure resources. However, the business rules of an object might prevent it from being updated by a REST API request. For example, a DELETE request on a work order resource might fail if the business object validations prevent deletions because of the current state of the work order.
 

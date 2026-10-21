@@ -6,9 +6,9 @@ draft: false
 ---
 
 
-On the previous tutorial [(Part -1) — Solidity Smart Contract development environment setup for Visual Studio Code with Truffle framework](https://medium.com/@jackyqiubao/the-latest-ethereum-solidity-smart-contract-development-tutorial-part-1-develop-solidity-4ee15bdb1dee), we learned how to setup our development environment and the high level of the requirement for rock-scissors-paper game which we are planning to build smart contract for. Now in this tutorial, we will start to write a solidity smart contract and test it in truffle.
+On the previous tutorial [(Part -1) — Solidity Smart Contract development environment setup for Visual Studio Code with Truffle framework](/posts/ethereum-solidity-tutorial-part1-develop/), we learned how to setup our development environment and the high level of the requirement for rock-scissors-paper game which we are planning to build smart contract for. Now in this tutorial, we will start to write a solidity smart contract and test it in truffle.
 
-Before you start the following section, please make sure you follow the [Part -1](https://medium.com/@jackyqiubao/the-latest-ethereum-solidity-smart-contract-development-tutorial-part-1-develop-solidity-4ee15bdb1dee)to complete development environment setup.
+Before you start the following section, please make sure you follow the [Part -1](/posts/ethereum-solidity-tutorial-part1-develop/)to complete development environment setup.
 
 And to be able to have better understand each step and the code in the following, I would like to encourage you to walk through the basic concept on Solidity and Truffle through the below official sites . Of course you would be able to walk through the following steps without knowledge of Truffle and Solidity, but you would only know how to do it, instead of why to it (I think this is more important than how).
 
@@ -18,7 +18,7 @@ And to be able to have better understand each step and the code in the following
 
 In the VS Code, open the folder which we create for the DAPP, for my case, it is C:\DAPPTutorial. The folder currently is empty.
 
-![](https://cdn-images-1.medium.com/max/800/1*eJREQaYSmpx4b2ODnQqCSg.png)
+![](/images/1*eJREQaYSmpx4b2ODnQqCSg.png)
 
 Now we are ready to start our exciting solidity smart contract coding.
 
@@ -28,7 +28,7 @@ Truffle provided some of example applications and project templates at [Truffle 
 
 Open a new terminal in VS Code, make sure the current folder is at the C:\DAPPTutorial.
 
-![](https://cdn-images-1.medium.com/max/800/1*ojJGiwn6M5YR2Rviev4X4Q.png)
+![](/images/1*ojJGiwn6M5YR2Rviev4X4Q.png)
 
 Type the following command and enter on this terminal:
 
@@ -36,7 +36,7 @@ Type the following command and enter on this terminal:
 
 After this command execute, you will find there are couple files and folders are created under the folder of DAPPTutorial.
 
-![](https://cdn-images-1.medium.com/max/800/1*_NPo1IxX6HWuNI1WvfJVnA.png)
+![](/images/1*_NPo1IxX6HWuNI1WvfJVnA.png)
 
 Let’s have a quick walk-through of this folder and file structure:
 
@@ -72,7 +72,7 @@ Make sure you save this file after the change.
 
 In the VS Code Explorer, click to select “contracts” folder, and click on new file button at the top right.
 
-![](https://cdn-images-1.medium.com/max/800/1*ZG2eD1bFIE8z4x7Pp6xZ3A.png)
+![](/images/1*ZG2eD1bFIE8z4x7Pp6xZ3A.png)
 
 In the input box, type “Rockscissorspaper.sol” as our smart contract file name (sol is solidity file).
 

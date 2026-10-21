@@ -33,7 +33,7 @@ Before we are getting start on technical section, let’s take quick look on wha
 
 I think most of the people know how to play rock-scissors-paper game (for the folks don’t know this game, please refer to wiki: [https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors)).
 
-![](https://cdn-images-1.medium.com/max/800/1*JyseWEl7Aw5RlHqwd0sb5A.png)
+![](/images/1*JyseWEl7Aw5RlHqwd0sb5A.png)
 
 *Rock-Scissors-Paper Game*
 
@@ -89,11 +89,11 @@ In my case, I download windows user installer 64 bit version. Install Visual Stu
 
 Open VS Code, click on “Open folder…” menu on the welcome window.
 
-![](https://cdn-images-1.medium.com/max/800/1*M7wzkwDL9uEv-wZR4YaHwg.png)
+![](/images/1*M7wzkwDL9uEv-wZR4YaHwg.png)
 
 Create a new folder call “DAPPTutorial” folder under C drive and click select this folder button.
 
-![](https://cdn-images-1.medium.com/max/800/1*xqCoQddfPhwazLwbdPUf6w.png)
+![](/images/1*xqCoQddfPhwazLwbdPUf6w.png)
 
 4. Install ganache-cli
 
@@ -101,13 +101,13 @@ To install ganache-cli, you can use npm through command prompt window, or throug
 
 Open a new terminal through menu Terminal -> New Terminal
 
-![](https://cdn-images-1.medium.com/max/800/1*1zIym5BAotL1TCY-7y6oMg.png)
+![](/images/1*1zIym5BAotL1TCY-7y6oMg.png)
 
 On the terminal window, type the following command and enter:
 
 *npm install -g ganache-cli*
 
-![](https://cdn-images-1.medium.com/max/800/1*KskqOSyaJeG8sJ_pcsv8LQ.png)
+![](/images/1*KskqOSyaJeG8sJ_pcsv8LQ.png)
 
 Notes: -g option is to install ganache-cli package globally in your current npm environment.
 
@@ -117,13 +117,13 @@ After install successfully, type the following command to start ganache:
 
 It will launch a local Ethereum blockchain along with 10 accounts for development testing. And open a default local port 8545 for transaction.
 
-![](https://cdn-images-1.medium.com/max/800/1*rlYyN1e7CaoM4QpiblBLXQ.png)
+![](/images/1*rlYyN1e7CaoM4QpiblBLXQ.png)
 
 5. Install Truffle
 
 Open a new split terminal through click split window button on the right top of terminal window.
 
-![](https://cdn-images-1.medium.com/max/800/1*Hz0HIPFIglSurCnmnkCL6A.png)
+![](/images/1*Hz0HIPFIglSurCnmnkCL6A.png)
 
 On the new terminal window, type the following command and enter to install truffle:
 
@@ -133,11 +133,11 @@ After install truffle, type the following command to see the version of truffle 
 
 *truffle version*
 
-![](https://cdn-images-1.medium.com/max/800/1*o6T4bcoJ3dW3iqR89XKBWA.png)
+![](/images/1*o6T4bcoJ3dW3iqR89XKBWA.png)
 
 Congratulation, now your smart contract development environment is ready. I will walk your through on how to develop solidity smart contract to fulfill the requirement for the Rock-Scissors-Paper game in the next tutorial:
 
-[(Part -2) — Develop solidity smart contract in Truffle](https://medium.com/@jackyqiubao/the-latest-ethereum-solidity-smart-contract-development-tutorial-part-2-develop-solidity-871f743ad113)
+[(Part -2) — Develop solidity smart contract in Truffle](/posts/ethereum-solidity-tutorial-part2/)
 
 Please let me know if you have any issue / question on this tutorial.
 

@@ -6,13 +6,13 @@ draft: false
 ---
 
 
-In my previous serial blogs “[Azure IoT integration with Maximo](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-1-b141c4210db0?sk=5345c390bd704aff8349231bbef7ec7d)”, introducing how to build a python IoT device simulator sending IoT device sensor data (for example, temperature data) to Azure IoT hub, through Azure Event Grid to pass telemetry to Azure Function. In Azure Function, call Maximo NexGen Rest API to post telemetry data to Maximo Asset meter reading.
+In my previous serial blogs “[Azure IoT integration with Maximo](/posts/azure-iot-integration-maximo-part1/)”, introducing how to build a python IoT device simulator sending IoT device sensor data (for example, temperature data) to Azure IoT hub, through Azure Event Grid to pass telemetry to Azure Function. In Azure Function, call Maximo NexGen Rest API to post telemetry data to Maximo Asset meter reading.
 
-In this serial blogs, I will introduce how to turn your Lego EV3 robot to be IoT device to replace the IoT simulator in [previous blog](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-1-b141c4210db0?source=friends_link&sk=5345c390bd704aff8349231bbef7ec7d), and how to connect EV3 through MQTT instead of Azure IoT Device SDK. In the [part 2 blog](https://jackyqiubao.medium.com/turn-your-lego-ev3-robot-to-azure-iot-device-part-2-create-work-order-in-maximo-6f7427ffcbaf?sk=9489b17541c2d307327a8201a15af53f), I will demonstrate how to create Work Order in Maximo through Maximo NextGen Rest API based on the color sensor data from Lego EV3 Robot.
+In this serial blogs, I will introduce how to turn your Lego EV3 robot to be IoT device to replace the IoT simulator in [previous blog](/posts/azure-iot-integration-maximo-part1/), and how to connect EV3 through MQTT instead of Azure IoT Device SDK. In the [part 2 blog](/posts/lego-ev3-azure-iot-part2-maximo-workorder/), I will demonstrate how to create Work Order in Maximo through Maximo NextGen Rest API based on the color sensor data from Lego EV3 Robot.
 
 The following is the high level architect diagram for this experiment.
 
-![](https://cdn-images-1.medium.com/max/800/1*1xEPxOu9Q0baaB5lten4lw.png)
+![](/images/1*1xEPxOu9Q0baaB5lten4lw.png)
 
 To be able to perform this experiment, you need to have:
 
@@ -20,7 +20,7 @@ To be able to perform this experiment, you need to have:
 
 LEGO Mindstorms EV3 is the third generation robotics kit in LEGO’s Mindstorms line. You can build a lot of interesting projects with Lego EV3 essential kit or extension set. You can program on its original built-in OS with Scratch language, or program it on external Debian OS launched through SD card with MicroPython / Pythhon. In this experiment, I will demonstrate how to use the second option to develop customized code to send color sensor data from Lego EV3 robot to Azure IoT hub through MQTT with MicroPython.
 
-![](https://cdn-images-1.medium.com/max/800/0*TIexihCLbT0u3aLH)
+![](/images/0*TIexihCLbT0u3aLH.jpeg)
 
 *Lego Ev3 Robot*
 
@@ -32,7 +32,7 @@ The reason we need miscroSD / miscroSDHC card is to run ev3dev stretch (Debian O
 
 (4) Maximo Environment. If you would like to try the whole experiment to develop Azure function to call Maximo NextGen Rest API to create work order in Maximo when EV3 robot color sensor detect red color, you also need to have an Maximo environment to complete the whole experiment. But if you don’t have Maximo environment, or you are not interested in EAM section, follow the sections from 1 to 4 in this blog still give your the idea on how to connect your real IoT device to Azure IoT hub through [MQTT](https://en.wikipedia.org/wiki/MQTT) with [MicroPython](https://en.wikipedia.org/wiki/MicroPython).
 
-In this blog, you will have hand-on experience to prepare your EV3 to be launched through ev3dev stretch Debian OS in SD card instead of EV3 built-in OS. And also learn how to connect your EV3 to internet. You will learn how to use MQTT client in MicroPython to connect to Azure IoT hub instead of using Azure IoT Device SDK. The purpose of this experiment is to develop customized MicroPython code to turn your EV3 to be Azure IoT device to send telemetry data (for example EV3 sensor data) to Azure IoT Hub, and in Azure IoT Function, we will update the Azure function which we built in my previous blog “[Azure IoT integration with Maximo — Part 1](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-1-b141c4210db0?sk=5345c390bd704aff8349231bbef7ec7d)“ to call Maximo NextGen Rest API to create work order when the EV3 color sensor data value is “Red”.
+In this blog, you will have hand-on experience to prepare your EV3 to be launched through ev3dev stretch Debian OS in SD card instead of EV3 built-in OS. And also learn how to connect your EV3 to internet. You will learn how to use MQTT client in MicroPython to connect to Azure IoT hub instead of using Azure IoT Device SDK. The purpose of this experiment is to develop customized MicroPython code to turn your EV3 to be Azure IoT device to send telemetry data (for example EV3 sensor data) to Azure IoT Hub, and in Azure IoT Function, we will update the Azure function which we built in my previous blog “[Azure IoT integration with Maximo — Part 1](/posts/azure-iot-integration-maximo-part1/)“ to call Maximo NextGen Rest API to create work order when the EV3 color sensor data value is “Red”.
 
 **1. Launch your EV3 through ev3dev stretch Debian OS in SD card**
 
@@ -50,7 +50,7 @@ Once your EV3 complete start, follow the steps in below link to choose the inter
 
 For Bluetooth option, you can connect your EV3 to internet with win10 which is the option I am using. You just need to turn on your mobile hotspot with bluetooth on your windows 10, and connect your EV3 Bluetoothto this Bluetooth mobile hotspot.
 
-![](https://cdn-images-1.medium.com/max/800/1*bhkNIRZtTxLeSI87MR5SYw.png)
+![](/images/1*bhkNIRZtTxLeSI87MR5SYw.png)
 
 **3. Setup Development Environment**
 
@@ -66,13 +66,13 @@ We will develop the MicroPython programs using Visual Studio Code. Follow the st
 
 (5) Install the EV3 MicroPython extension as shown below
 
-![](https://cdn-images-1.medium.com/max/800/0*s6GbZHMVhEIrG846.png)
+![](/images/0*s6GbZHMVhEIrG846.png)
 
 *Installing the extension from the Visual Studio Code marketplace*
 
 **4. Start to code**
 
-The following section we will start to develop MicroPython code to connect EV3 to IoT hub through [MQTT](https://en.wikipedia.org/wiki/MQTT). You might ask why we don’t use Azure IoT Device SDK in this experiment like what we did in my previous blog “[Azure IoT integration with Maximo — Part 1](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-1-b141c4210db0?source=friends_link&sk=5345c390bd704aff8349231bbef7ec7d)”. The major reason is Azure IoT Device SDK is required at least Python 3.6 version, but in current Ev3Dev Stretch Image (Debian Stretch OS), it is only support Python3.5.3.
+The following section we will start to develop MicroPython code to connect EV3 to IoT hub through [MQTT](https://en.wikipedia.org/wiki/MQTT). You might ask why we don’t use Azure IoT Device SDK in this experiment like what we did in my previous blog “[Azure IoT integration with Maximo — Part 1](/posts/azure-iot-integration-maximo-part1/)”. The major reason is Azure IoT Device SDK is required at least Python 3.6 version, but in current Ev3Dev Stretch Image (Debian Stretch OS), it is only support Python3.5.3.
 
 And let’s talking about a little bit about MicroPython. MicroPython is a software implementation of a programming language largely compatible with Python 3, written in C, that is optimized to run on a microcontroller. MicroPython consists of a Python compiler to bytecode and a runtime interpreter of that bytecode. If you are familiar with Python, MicroPython looks almost the same from development perspective.
 
@@ -82,19 +82,19 @@ Now let’s getting start to have fun on coding.
 
 To create a new project, open Visual Studio Code, and then open the EV3 MicroPython tab and click *create a new project*, as shown in below figure. Enter a project name in the text field that appears and press *Enter*. When prompted, choose a location for this program and confirm by clicking *choose folder*.
 
-![](https://cdn-images-1.medium.com/max/800/0*XIQyRf8N3jam3G8m.png)
+![](/images/0*XIQyRf8N3jam3G8m.png)
 
 *Create a new project*
 
 When you create a new project, it already includes a file called *main.py*. To see its contents and to modify it, open it from the file browser as shown in below figure. This is where you’ll write your programs.
 
-![](https://cdn-images-1.medium.com/max/800/0*e_F623zqfQtCksnf.png)
+![](/images/0*e_F623zqfQtCksnf.png)
 
 *Default main.py program.*
 
 The following is the *project folders structure*, as shown in below figure. A project folder is a directory on your computer that contains the main program (**main.py**) and other optional scripts or files. This project folder and all of its contents will be copied to the EV3 Brick, where the main program will be run.
 
-![](https://cdn-images-1.medium.com/max/800/0*muuHG-9rMY1-YhwO.png)
+![](/images/0*muuHG-9rMY1-YhwO.png)
 
 *Folder structure*
 
@@ -168,13 +168,13 @@ In the above code, update the following line with your Azure IoT Device Connecti
 dict_keys = parse_connection("<YOUR CONNECTION STRING>")
 ```
 
-To gain your Azure IoT Device Connection String, Login your Azure portal, open your IOT Hub (you can refer to my previous blog “[Azure IoT integration with Maximo — Part 1](https://jackyqiubao.medium.com/azure-iot-integration-with-maximo-part-1-b141c4210db0?sk=5345c390bd704aff8349231bbef7ec7d)” on how to create Azure IoT hub) , under Device management section, click “Devices” to open device list. Create a new device call “EV3”.
+To gain your Azure IoT Device Connection String, Login your Azure portal, open your IOT Hub (you can refer to my previous blog “[Azure IoT integration with Maximo — Part 1](/posts/azure-iot-integration-maximo-part1/)” on how to create Azure IoT hub) , under Device management section, click “Devices” to open device list. Create a new device call “EV3”.
 
-![](https://cdn-images-1.medium.com/max/800/1*I2-2L9fo-TY9SdV8ZnFCHg.png)
+![](/images/1*I2-2L9fo-TY9SdV8ZnFCHg.png)
 
 Click the device “EV3” in the device list to open device detail information. At the end of Primary connection string field, click copy button to copy device connection string.
 
-![](https://cdn-images-1.medium.com/max/800/1*vpryNFmwSlPgf7iPFPVvAw.png)
+![](/images/1*vpryNFmwSlPgf7iPFPVvAw.png)
 
 Now let’s switch back to VS Code to update connection string in the IoT.
 
@@ -186,7 +186,7 @@ sas_token_str = "<YOUR SAS TOKEN STRING>"
 
 To retrieve your SAS token, go back to your Azure IoT hub, select “Shared access policies” at the left panel, and click device policy, and then click Copy button to copy primary Connection string.
 
-![](https://cdn-images-1.medium.com/max/800/1*7KiZteE84bq8ZxqR61sktg.png)
+![](/images/1*7KiZteE84bq8ZxqR61sktg.png)
 
 Follow the below step in VS Code to generate a temperary SAS token with the device share access policy connection string.
 
@@ -214,7 +214,7 @@ sas_token_str = "<YOUR SAS TOKEN STRING>"
 
 In VS Code, click “File -> New File…”, typed util.py to create a new python file and enter.
 
-![](https://cdn-images-1.medium.com/max/800/1*m33T06j_gslzBW8WcjjOog.png)
+![](/images/1*m33T06j_gslzBW8WcjjOog.png)
 
 In util.py file, copy and paste the below code to it.
 
@@ -254,23 +254,23 @@ def parse_connection(connection_string):
 
 After save the above code to util.py, you can click the download button at EV3Dev Device Browser extension to download the code to your EV3 robot device.
 
-![](https://cdn-images-1.medium.com/max/800/1*2SJwjVuQK-A-dIT5zp5z0A.png)
+![](/images/1*2SJwjVuQK-A-dIT5zp5z0A.png)
 
 Expand the folder to locate main.py file, right click on it, select “Run” to start running the code from EV3.
 
-![](https://cdn-images-1.medium.com/max/800/1*E7LnhHhH9njXDTdEwUaxyg.png)
+![](/images/1*E7LnhHhH9njXDTdEwUaxyg.png)
 
 On the VS Code output window will be able to see the log as:
 
-![](https://cdn-images-1.medium.com/max/800/0*LyVOzYXe4-w_Y346.png)
+![](/images/0*LyVOzYXe4-w_Y346.png)
 
 If you open your IoT Hub, on overview page, you will be able to see the messages were received by the IoT hub.
 
-![](https://cdn-images-1.medium.com/max/800/1*hWLFrVMNS4r034yJ8w3DYg.png)
+![](/images/1*hWLFrVMNS4r034yJ8w3DYg.png)
 
 In this blog, we learned how to turn your EV3 robot to be Azure IoT device to connect to Azure IoT hub, and sent color sensor data to Azure IoT hub through MQTT.
 
-In [next blog](https://jackyqiubao.medium.com/turn-your-lego-ev3-robot-to-azure-iot-device-part-2-create-work-order-in-maximo-6f7427ffcbaf?sk=9489b17541c2d307327a8201a15af53f), we will learn how to parse the telemetry color data from EV3 Robot device, and create work order in Maximo through NextGen Rest API.
+In [next blog](/posts/lego-ev3-azure-iot-part2-maximo-workorder/), we will learn how to parse the telemetry color data from EV3 Robot device, and create work order in Maximo through NextGen Rest API.
 
 If you think this blog helping you, welcome to buy me a coffee through below Green *Give a Tip* button :)
 

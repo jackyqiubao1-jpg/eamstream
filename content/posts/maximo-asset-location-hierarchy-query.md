@@ -8,7 +8,7 @@ draft: false
 
 In Maximo, Asset / Location hierarchy is a pretty standard data format for asset and location management. The following is an example of HVAC asset hierarchy in Maximo asset drilldown function.
 
-![](https://cdn-images-1.medium.com/max/800/1*re4t8_dxEth34rhE2Kle9Q.png)
+![](/images/1*re4t8_dxEth34rhE2Kle9Q.png)
 
 It would be very common for the business user asks to have asset / location hierarchy report along with other information. There is an out of box (OOO) Asset Hierarchy in Maximo with very limit information (only asset num and description fields). To query the asset / location hierarchy information along with other information, for example, level information, custom format description which can show the layer indent description make it looks like a tree instead of flat table.
 
@@ -28,11 +28,11 @@ select a.ASSETNUM ,a.PARENT , s.HIERARCHYLEVELS AS level, a.DESCRIPTION,
 
 After execute the above script, we will retrieve the following data:
 
-![](https://cdn-images-1.medium.com/max/800/1*H04YHZQMXInFPdS29MenHg.png)
+![](/images/1*H04YHZQMXInFPdS29MenHg.png)
 
 It looks good except the order. If we would like to get the data with the tree structure order like below:
 
-![](https://cdn-images-1.medium.com/max/800/1*fg8cd_V4cwRDFm46U-Mwsg.png)
+![](/images/1*fg8cd_V4cwRDFm46U-Mwsg.png)
 
 we need to adjust our query to add a field for sorting purpose. The following is the updated script to pull the data with tree structure order.
 
@@ -54,7 +54,7 @@ from assetparent ORDER BY order_sequence;
 
 In above sql script, we used recursive query to generate the level and the field “order_sequence” for sorting as tree structure. After execute the above script, we can pull the Asset hierarchy from Maximo database as tree structure order.
 
-![](https://cdn-images-1.medium.com/max/800/1*ICNTOx16bf-ssusiXxaZsg.png)
+![](/images/1*ICNTOx16bf-ssusiXxaZsg.png)
 
 If your Maximo instance database is Oracle which supports “connect by” recursive query, you can simply the above query as below:
 

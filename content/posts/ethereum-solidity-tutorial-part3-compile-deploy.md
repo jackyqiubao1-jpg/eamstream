@@ -8,9 +8,9 @@ draft: false
 
 If you following my previous 2 serials:
 
-[(Part -1) — Solidity Smart Contract development environment setup for Visual Studio Code with Truffle framework](https://medium.com/@jackyqiubao/the-latest-ethereum-solidity-smart-contract-development-tutorial-part-1-develop-solidity-4ee15bdb1dee)
+[(Part -1) — Solidity Smart Contract development environment setup for Visual Studio Code with Truffle framework](/posts/ethereum-solidity-tutorial-part1-develop/)
 
-[(Part -2) — Develop solidity smart contract in truffle](https://medium.com/@jackyqiubao/the-latest-ethereum-solidity-smart-contract-development-tutorial-part-2-develop-solidity-871f743ad113)
+[(Part -2) — Develop solidity smart contract in truffle](/posts/ethereum-solidity-tutorial-part2/)
 
 you should be able to setup your solidity smart contract development environment and write your first smart contract. Now let’s take further adventure to compile, deploy and test the smart contract we developed in previous tutorial.
 
@@ -18,11 +18,11 @@ you should be able to setup your solidity smart contract development environment
 
 In a VS Code terminal window, make sure you are at the current DAPP folder, in our case, it is C:\DAPPTutorial. Type the command “truffle compile” and enter, you will get the result like this:
 
-![](https://cdn-images-1.medium.com/max/800/1*bZonNxlEAIsJmhWLo6b5Rw.png)
+![](/images/1*bZonNxlEAIsJmhWLo6b5Rw.png)
 
 You should find some json files is created under the folder .\build\contracts
 
-![](https://cdn-images-1.medium.com/max/800/1*bObogKeJ4AF0dlyEUjW8GQ.png)
+![](/images/1*bObogKeJ4AF0dlyEUjW8GQ.png)
 
 Those `.json` file are the ABI (Application Binary Interface) that describe the deployed contract and its functions. It allows us to contextualize the contract and call its functions, which will allow external application, for example, web3.js to call the exposed functions for the deployed smart contract. We will learn more detail on it on next serial Part-4 How to call smart contract from web javascript.
 
@@ -32,7 +32,7 @@ Migrations are JavaScript files that help you deploy contracts to the Ethereum n
 
 Create a new file call “2_deploy_RockScissorsPaper.js” under migration folders.
 
-![](https://cdn-images-1.medium.com/max/800/1*xl91QgX55yYCE-yr4-L9EQ.png)
+![](/images/1*xl91QgX55yYCE-yr4-L9EQ.png)
 
 Note that the filename is prefixed with a number and is suffixed by a description. The numbered prefix is required in order to record whether the migration ran successfully. The suffix is purely for human readability and comprehension.
 
@@ -72,7 +72,7 @@ Make sure the ganache-cli is running, and in the VS Code terminate, run the foll
 
 You will see the following similar screen after the command being executed:
 
-![](https://cdn-images-1.medium.com/max/800/1*LNfeK32L0dLbYM_75fnDoA.png)
+![](/images/1*LNfeK32L0dLbYM_75fnDoA.png)
 
 The first smart contract deployment is for the Migrations.sol which is to support truffle framework. The second contract deployment is for our Rockscissorspaper.sol smart contract. And from the result, we can get contract address, and how many gas cost to deploy the contract.
 
@@ -88,7 +88,7 @@ In a VS Code terminate, run the following command to launch truffle console:
 
 Then you will see we are in the truffle console as following:
 
-![](https://cdn-images-1.medium.com/max/800/1*uT6aRJcV46NMqj4kqA7Bbg.png)
+![](/images/1*uT6aRJcV46NMqj4kqA7Bbg.png)
 
 You can quit from the truffle console by execute the command *.exit *in the truffle console to quit from truffle console.
 
@@ -102,7 +102,7 @@ Note: *The account address you can get from ganache-cli console when you launch 
 
 After you execute this command, you should be able to see the similar result as following:
 
-![](https://cdn-images-1.medium.com/max/800/1*6gLvzfkeY1CX_A_RpRg1JA.png)
+![](/images/1*6gLvzfkeY1CX_A_RpRg1JA.png)
 
 Now let call getAvailableHostList function to see if the account *’0x15b7b19813454ba6904d6b233a6505fbdbc13e28' *hosted the game.
 
@@ -112,7 +112,7 @@ Execute the following command in truffle console:
 
 We will see the following result as we expect.
 
-![](https://cdn-images-1.medium.com/max/800/1*puT3XaogFxE1sPGtDFcYmA.png)
+![](/images/1*puT3XaogFxE1sPGtDFcYmA.png)
 
 It is time for other user to call the function registerAsAnOpponent to join this hosted game.
 
@@ -120,7 +120,7 @@ It is time for other user to call the function registerAsAnOpponent to join this
 
 The result should be similar as following:
 
-![](https://cdn-images-1.medium.com/max/800/1*uDLOXFbosYp80G3yZNv97g.png)
+![](/images/1*uDLOXFbosYp80G3yZNv97g.png)
 
 Let start to play the game. The host “0x15b7b19813454ba6904d6b233a6505fbdbc13e28” will play scissors (1) by the following command:
 
@@ -128,7 +128,7 @@ Let start to play the game. The host “0x15b7b19813454ba6904d6b233a6505fbdbc13e
 
 The result will be similar as:
 
-![](https://cdn-images-1.medium.com/max/800/1*QcrBuPME9DYc5_2VD7wtVg.png)
+![](/images/1*QcrBuPME9DYc5_2VD7wtVg.png)
 
 Now it is time for client “0xd533b3651588072cf662814434976d0375b395e5” to play. The client would like to play paper (2):
 
@@ -140,7 +140,7 @@ After both of players play the game, let’s call getGameInfo to check who is wi
 
 Per the result, we can see the host win.
 
-![](https://cdn-images-1.medium.com/max/800/1*flbZ4CGlIsaNbfoLzDDwzg.png)
+![](/images/1*flbZ4CGlIsaNbfoLzDDwzg.png)
 
 Congratulation! Now you know how to write the smart contract, and how to deploy and test it in truffle if you follow this serial tutorials from part -1 to part -3.
 

@@ -26,7 +26,7 @@ Docker becomes more and more popular in the development process, especially for 
 
 The Progress bar will be shown as following.
 
-![](https://cdn-images-1.medium.com/max/800/1*t6mmh9rbAxQhmpEkYtkkjg.png)
+![](/images/1*t6mmh9rbAxQhmpEkYtkkjg.png)
 
 After this step, you should be able to see your hard drive space coming back.
 

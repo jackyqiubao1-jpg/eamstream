@@ -16,15 +16,15 @@ Connect to Maximo database, run the following script against Maximo database (Yo
 
 Go to Maximo -> System Configuration -> Platform Configuration -> System Properties. Filter by mxe.int.binarytext in the column property name to locate the record:
 
-![](https://cdn-images-1.medium.com/max/800/1*Kg4oA3DEbIr-k7EikXj8ig.png)
+![](/images/1*Kg4oA3DEbIr-k7EikXj8ig.png)
 
 Check Online Changes Allowed? checkbox, and Save the change.
 
-![](https://cdn-images-1.medium.com/max/800/1*JDN16fzzcIBmljc6bhujwg.png)
+![](/images/1*JDN16fzzcIBmljc6bhujwg.png)
 
 Now you can modify Global Value field. After modify the Global Value, Save the change, and click Live Refresh from action list to apply the global value to current value.
 
-![](https://cdn-images-1.medium.com/max/800/1*571mxWbLYUsCxzooKxstrg.png)
+![](/images/1*571mxWbLYUsCxzooKxstrg.png)
 
 ***Warning: Please make sure your fully understanding the impact of the system property you want to update before you make the change.***
 

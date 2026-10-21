@@ -16,7 +16,7 @@ The issue was caused by someone open this start center template to modify, but f
 
 You will be able figure who (USERID column) is modifying the template (DESCRIPTION column)
 
-![](https://cdn-images-1.medium.com/max/800/1*oGxQSMzormi3l7z4DGJ0Ww.png)
+![](/images/1*oGxQSMzormi3l7z4DGJ0Ww.png)
 
 Ask the user to login Maximo, on the locked start center, click on the Save Template or Cancel Changes hyperlinks on the right top tool bar on the screen, will unlock the start center template.
 

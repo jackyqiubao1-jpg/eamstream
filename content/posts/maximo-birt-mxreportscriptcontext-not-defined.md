@@ -63,11 +63,11 @@ The following steps is to fix the above issue:
 
 (2) Open Eclipse, go to menu “Window -> Preference”, expand node “Report Design”, click on “Preview” node. Check “Always use external browsers”
 
-![](https://cdn-images-1.medium.com/max/800/1*GeX9NMGwPc54J6F4g-VBEA.png)
+![](/images/1*GeX9NMGwPc54J6F4g-VBEA.png)
 
 (3) Click link “Web Browser” Link under the “Always use external browsers” checkbox. Select option “Use external web browser”, and check “Firebox” checkbox in the list. Click OK button to save the change.
 
-![](https://cdn-images-1.medium.com/max/800/1*gsq09FgC0lmcqxhwYGeRTg.png)
+![](/images/1*gsq09FgC0lmcqxhwYGeRTg.png)
 
 (4) Restart Eclipse, and run your report through menu “Run -> View Report -> In Web Viewer”. Your report should be launched successfully now.
 

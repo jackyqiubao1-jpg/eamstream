@@ -12,11 +12,11 @@ Recently I tried to install Maximo Spatial package to a Maximo instance. After t
 
 And the error page parameters are loginerror.jsp?group=system&key=NoLogin
 
-![](https://cdn-images-1.medium.com/max/800/1*J9WxoRVsW5cBwctA27x-VQ.png)
+![](/images/1*J9WxoRVsW5cBwctA27x-VQ.png)
 
 Investigated on the log, cannot find any useful information since no exception happened for this case. After research through Mr. Google, looks like it was caused by useAppServerSecurity was updated issue. To verify my assumption, opened the file *maximo.properties* (default location in Windows *C:\IBM\SMP\maximo\applications\maximo\properties*), the value mxe.useAppServerSecurity=1, means it will use LDAP authentification. But in my Maximo instance I was configured it used Maximo application authentication. It might be updated during the Maximo Spatial package installation.
 
-![](https://cdn-images-1.medium.com/max/800/1*4BbEnspVkw7vUKM3mRBdjg.png)
+![](/images/1*4BbEnspVkw7vUKM3mRBdjg.png)
 
 And checking the *useAppServerSecurity *property value in the *web.xml* file under the following folders:
 
@@ -27,7 +27,7 @@ And checking the *useAppServerSecurity *property value in the *web.xml* file und
 
 I found the *useAppServerSecurity *value was set to 1 as well.
 
-![](https://cdn-images-1.medium.com/max/800/1*9jt9ZGRv-Ds2Sm0iTooWfA.png)
+![](/images/1*9jt9ZGRv-Ds2Sm0iTooWfA.png)
 
 After performed the below steps, the issue was solved.
 
@@ -47,7 +47,7 @@ update *mxe.useAppServerSecurity=1 *to be* mxe.useAppServerSecurity=0,*
 
 Add *mxe.db.password={Replace with your DB password} *line under below session:
 
-![](https://cdn-images-1.medium.com/max/800/1*uffd0OMw8P9niwDdRJcXwQ.png)
+![](/images/1*uffd0OMw8P9niwDdRJcXwQ.png)
 
 Save the changes.
 
@@ -62,21 +62,21 @@ Open *web.xml* file under folder c:\*IBM\SMP\maximo\applications\maximo\maximoui
 
 Search *useAppServerSecurity in web.xml, and u*pdate *useAppServerSecurity *value to be 0.
 
-![](https://cdn-images-1.medium.com/max/800/1*NfJQQwuqnh-KuXrkBGq9Yg.png)
+![](/images/1*NfJQQwuqnh-KuXrkBGq9Yg.png)
 
 Search *security-constraint* and comment all of the* security-constraint *sections.
 
-![](https://cdn-images-1.medium.com/max/800/1*WOX0Q7JPEMhmDmuziBJ6rA.png)
+![](/images/1*WOX0Q7JPEMhmDmuziBJ6rA.png)
 
-![](https://cdn-images-1.medium.com/max/800/1*oGtg4qC3LUHpFdT0VQ4cAQ.png)
+![](/images/1*oGtg4qC3LUHpFdT0VQ4cAQ.png)
 
 Search *login-config* and comment *login-config* section for ***BASIC ***auth-method
 
-![](https://cdn-images-1.medium.com/max/800/1*mh7m7Y3TXbsDCbVtA_OMyw.png)
+![](/images/1*mh7m7Y3TXbsDCbVtA_OMyw.png)
 
 Uncomment *login-config* and comment *login-config* section for ***Form ***auth-method
 
-![](https://cdn-images-1.medium.com/max/800/1*QEK4PjYnBYNSS45oCJDReg.png)
+![](/images/1*QEK4PjYnBYNSS45oCJDReg.png)
 
 Save the above changes.
 
@@ -89,7 +89,7 @@ And make the change to *u*pdate *useAppServerSecurity *value to be 0 in *web.xml
 
 You can use Configuration Tool *ConfigUI.exe* under the folder *C:\IBM\SMP_2\ConfigTool,* use the option “Update Database and Build and Deploy Application EAR files” to rebuild and redeploy the Maximo application.
 
-![](https://cdn-images-1.medium.com/max/800/1*MhF8HdY0sbKd9eaeBLqnzQ.png)
+![](/images/1*MhF8HdY0sbKd9eaeBLqnzQ.png)
 
 Or you can follow the step on this page to rebuild and redeploy it manually.
 
@@ -97,7 +97,7 @@ Or you can follow the step on this page to rebuild and redeploy it manually.
 
 After Maximo application deploy complete, I can get my Maximo login page back. And after login, I can verify Maximo Spatial package is installed.
 
-![](https://cdn-images-1.medium.com/max/800/1*XWcoS5RkxZPQzSskk4ik4A.png)
+![](/images/1*XWcoS5RkxZPQzSskk4ik4A.png)
 
 If you think this blog helping you, welcome to buy me a coffee through below Green *Give a Tip* button :)
 

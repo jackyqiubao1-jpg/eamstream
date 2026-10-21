@@ -6,9 +6,9 @@ draft: false
 ---
 
 
-*If you don’t have Medium member, you can try this *[*friend link*](https://medium.com/eamstream/introduce-maximo-enterprise-service-to-accept-inbound-messages-from-other-systems-fcd4a9dce729?sk=c1e6f1ebfd965a48856ef130d1ff19e0)* to read.*
+*If you don’t have Medium member, you can try this *[*friend link*](/posts/maximo-enterprise-service-inbound-messages/)* to read.*
 
-In my previous blog [*Maximo Publish Channel for Sending Outbound Messages*](https://medium.com/eamstream/introduce-maximo-publish-channel-for-sending-outbound-messages-11b4bfdbe971) introduces outbound message from Maximo. How Maximo can accept inbound message from other system? There are 2 ways Maximo can receive outbound message from outside system to update the data in Maximo: (1) Through Object Structure Restful API (You can refer to my other blog “[*Introduction of Maximo NextGen Rest APIs — Part 2 Update Maximo Data*](https://medium.com/eamstream/introduction-of-maximo-nextgen-rest-apis-part-2-update-maximo-data-e3db83751709?source=your_stories_page-------------------------------------)*”*, or (2) Through Enterprise Service, which will provide step by step instruction in this blog.
+In my previous blog [*Maximo Publish Channel for Sending Outbound Messages*](/posts/maximo-publish-channel-outbound-messages/) introduces outbound message from Maximo. How Maximo can accept inbound message from other system? There are 2 ways Maximo can receive outbound message from outside system to update the data in Maximo: (1) Through Object Structure Restful API (You can refer to my other blog “[*Introduction of Maximo NextGen Rest APIs — Part 2 Update Maximo Data*](/posts/maximo-nextgen-rest-apis-part2-update-data/)*”*, or (2) Through Enterprise Service, which will provide step by step instruction in this blog.
 
 Maximo Enterprise is part of Maximo Integration Frame (MIF) to receive outbound message / data from external system. This article is to provide the instruction on how to configure Maximo Enterprise Service along with other MIF modules to receive the data from other systems.
 
@@ -28,7 +28,7 @@ Assume that we have the integration requirement to reeive the asset information 
 
 To implement the above requirement, we can leverage Maximo NextGen Restful API which I introduced in my this article to update asset data in Maximo:
 
-[*Introduction of Maximo NextGen Rest APIs — Part 2 Update Maximo Data*](https://medium.com/eamstream/introduction-of-maximo-nextgen-rest-apis-part-2-update-maximo-data-e3db83751709?source=your_stories_page-------------------------------------)
+[*Introduction of Maximo NextGen Rest APIs — Part 2 Update Maximo Data*](/posts/maximo-nextgen-rest-apis-part2-update-data/)
 
 But there is a limitation with NextGen Restful API solution to update / delete data in Maximo. You need to query the record to obtain resource ID, and then use resource ID to form the URI to update the record. It required to access Maximo twice to update one record. With the Enterprise Service, you just need to post once, and you can customize your interface logic through customized Enterprise Service User Exit class. This blog will not cover customized interface process logic through User Exit class, might have other blog in future to cover this topic.
 
@@ -38,7 +38,7 @@ An enterprise service is a pipeline for querying system data and importing data 
 (c) Data processing class — The processing class specifies a Java class that you can use to filter, transform data, and implement business logic.
 (d) XSL map — The XSL map specifies an XSLT style sheet that you can use to transform data and map the XML data message to another format.
 
-![](https://cdn-images-1.medium.com/max/800/1*ML8Z-mSUdYM2jYwbvI2GKQ.png)
+![](/images/1*ML8Z-mSUdYM2jYwbvI2GKQ.png)
 
 *Enterpise Service*
 
@@ -52,23 +52,23 @@ An object structure is the common data layer that the integration framework comp
 
 Open Object Structures application through Integration -> Object Structures menu. Click New Object Structure Button to create a new Object Structure to organize the asset data we plan to send out to other system. Fill out the required information for the OS.
 
-![](https://cdn-images-1.medium.com/max/800/0*Q6H_mvgBenutyB86.png)
+![](/images/0*Q6H_mvgBenutyB86.png)
 
 In Source Objects section, click New Row button to add a new Maximo Business Object (MBO), in our case, we will add Asset MBO to this object structure.
 
-![](https://cdn-images-1.medium.com/max/800/0*qjlbUB2WwB62ceXb.png)
+![](/images/0*qjlbUB2WwB62ceXb.png)
 
 Add Asset MBO. Click New Row again in Source Objects section, to add a child MBO ServiceAddress to send address information along with Asset to other system. Make sure select Parent Object to be Asset which we added before, and pick up the relationship “SERVICEADDRESS” for Asset and ServiceAddress MBO. You can understand relationship is how to join Asset and ServiceAddress tables in SQL Query.
 
-![](https://cdn-images-1.medium.com/max/800/0*YZpnGRTc9N6awcZV.png)
+![](/images/0*YZpnGRTc9N6awcZV.png)
 
 Save the above OS settings. Click Select Action -> Exclude/Include Fields menu from Object Structures Application to open Exclude/Include Fields window. This setting is to configure what fields we would like to explore to the external system in Asset and ServiceAddress MBOs we added to the OSASSET object structure in previous step. Select ASSET MBO in the Source Object section, check all of the fields in Persistent Fields section except for AssetNum , Status and Description fields, which we plan to send only those fields to the external system.
 
-![](https://cdn-images-1.medium.com/max/800/0*-lTvnynzdKm2iTj4.png)
+![](/images/0*-lTvnynzdKm2iTj4.png)
 
 Select ServiceAddress MBO and set AddressLine, City, County to be uncheck which we plan to explore asset service address information along with Asset information to other system .
 
-![](https://cdn-images-1.medium.com/max/800/0*9qrY336-IWQqg9z9.png)
+![](/images/0*9qrY336-IWQqg9z9.png)
 
 Click OK to save the Exclude/Include Fields setting to complete OS configuration.
 
@@ -76,19 +76,19 @@ Click OK to save the Exclude/Include Fields setting to complete OS configuration
 
 Open Enterprise Services application through the menu Integration -> Enterprise Services. Click New button to create a new Enterprise Service. Input the Enterprise Service name, description, and pick up the Object Structure OSASSET we created in previous step. After select OSASSET as object structure for the Publish Channel, the asset and serviceaddress MBOs in the object structure OSASSET is pulled to Object Structure Sub-Records section. Click Save button to save the configuration.
 
-![](https://cdn-images-1.medium.com/max/800/1*h_qSoJ4yNI4MbY6Ig-q-xQ.png)
+![](/images/1*h_qSoJ4yNI4MbY6Ig-q-xQ.png)
 
 Click menu “Select Action -> Message Tracking” to open Publish Channel Message Tracking Setting, check Enable Message Tracking and Store Message checkboxes, which will allow us to view the outbound message for this PC in Message Tracking application.
 
-![](https://cdn-images-1.medium.com/max/800/1*q-dnPGIbTvL1Cjdh-TtCdw.png)
+![](/images/1*q-dnPGIbTvL1Cjdh-TtCdw.png)
 
 You can configure process rule at Object Structure Business Processing Rules section. For example, if you want to skip to process the asset with status is decommissioned, you can click “New Row” button to add a skip rule as following:
 
-![](https://cdn-images-1.medium.com/max/800/1*cUpBPxcu9cY0DHiIGhP1DQ.png)
+![](/images/1*cUpBPxcu9cY0DHiIGhP1DQ.png)
 
 And click “Add/Modify Conditions” button to define asset =DECOMMISSIONED condition as below:
 
-![](https://cdn-images-1.medium.com/max/800/1*U5Ycj7k6hfpCm4LGPAx6qg.png)
+![](/images/1*U5Ycj7k6hfpCm4LGPAx6qg.png)
 
 Click OK button to save the configuration.
 
@@ -100,11 +100,11 @@ Open the External Systems Application through Integration -> External Systems. I
 
 For our case, the Asset inbound messages can be processed without sequence, we can set Inbound Continuous Queue with the out of box inbound queue: jms/maximo/int/queues/cqin. Of course you can configure your own inbound sequential / continuous queue, which is not in this instruction scope.
 
-![](https://cdn-images-1.medium.com/max/800/1*fmFVo1jkHuoCvCiTb4AikQ.png)
+![](/images/1*fmFVo1jkHuoCvCiTb4AikQ.png)
 
 Click on Enterprise Services tab, select the enterprise service ESASSET we created at **Step 2**. And check Enable checkbox to enable the enterprise service. And check “Use Continuous Queue” to configure this enterprise service will use continuous queue. If you don’t check this checkbox, it will default to use sequential queue.
 
-![](https://cdn-images-1.medium.com/max/800/1*ExvmIa3mCQDzLlwfPAkcTw.png)
+![](/images/1*ExvmIa3mCQDzLlwfPAkcTw.png)
 
 **Step 4: Verify the configuration.**
 
@@ -116,13 +116,13 @@ Open postman, create a new request, input the following url on the new request u
 
 On the postman Authorization tab, select your Maximo integration authorization type. For this case, we use basic auth to input username and password.
 
-![](https://cdn-images-1.medium.com/max/800/1*G0veb1OXWkL_XsfKG9udcA.png)
+![](/images/1*G0veb1OXWkL_XsfKG9udcA.png)
 
-You can get more information regarding Maximo integration authorization at the **Authentication **section on my other blog: [*Introduction of Maximo NextGen Rest APIs — Part 1 Query Maximo Data*](https://medium.com/eamstream/introduction-of-maximo-nextgen-rest-apis-part-1-query-maximo-data-6c082087e8f2)
+You can get more information regarding Maximo integration authorization at the **Authentication **section on my other blog: [*Introduction of Maximo NextGen Rest APIs — Part 1 Query Maximo Data*](/posts/maximo-nextgen-rest-apis-part1-query-data/)
 
 Click the Body tab on postman request, select raw option, and pickup XML as format from the dropdown list.
 
-![](https://cdn-images-1.medium.com/max/800/1*HkJFDjwAt36ze2uPshQ2bQ.png)
+![](/images/1*HkJFDjwAt36ze2uPshQ2bQ.png)
 
 Input the following XML payload on the body textbox.
 
@@ -152,19 +152,19 @@ Input the following XML payload on the body textbox.
 
 The above XML payload is to create / update an Asset with Assetnum= DEMOASSET. You might notice there is an action property at the Asset node in this payload. The following action value you can leverage in your payload for the differernt scenario.
 
-![](https://cdn-images-1.medium.com/max/800/1*GaqdTBf90NcjcyeOWxrOYA.png)
+![](/images/1*GaqdTBf90NcjcyeOWxrOYA.png)
 
 Click Send button on the request page, if everything is good, you will receive 200 response code from Maximo.
 
-![](https://cdn-images-1.medium.com/max/800/1*em8sVzaZywN5NMMoIeqZ6g.png)
+![](/images/1*em8sVzaZywN5NMMoIeqZ6g.png)
 
 To check what have been sent to Maximo, open Message Tracking application in Maximo, filter Integration Component with Enterprise name “ESASSET”, we would see the following payload have been processed
 
-![](https://cdn-images-1.medium.com/max/800/1*tel2QqgrHOZz_JkNOIk75A.png)
+![](/images/1*tel2QqgrHOZz_JkNOIk75A.png)
 
 And open the Asset application in Maximo, look for the DEMOASSET record, we can find it is created in Maximo.
 
-![](https://cdn-images-1.medium.com/max/800/1*BpbPc6kO2sqDv0DMa1Y4-A.png)
+![](/images/1*BpbPc6kO2sqDv0DMa1Y4-A.png)
 
 **4. Summary**
 

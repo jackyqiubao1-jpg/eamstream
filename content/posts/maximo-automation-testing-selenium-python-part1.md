@@ -70,7 +70,7 @@ pip show selenium
 
 You should be able to see similar information as following:
 
-![](https://cdn-images-1.medium.com/max/800/1*WZajijuawxpLkmdqTxvgqw.png)
+![](/images/1*WZajijuawxpLkmdqTxvgqw.png)
 
 **Step 4: **Install ChromeDriver and configure the path
 
@@ -146,19 +146,19 @@ if __name__ == '__main__':
 
 The comments in above code already have pretty good explanation. The only tip I would like to provide here is how to get html element ID which can be provided to the function *find_element(). *When you open the page you are trying to find element ID in chrome, click 3 dot icon at the right top, select the menu More tools ->Developer Tools.
 
-![](https://cdn-images-1.medium.com/max/800/1*eBrgndnb2q4P7glNg8zoeA.png)
+![](/images/1*eBrgndnb2q4P7glNg8zoeA.png)
 
 On the developers tool screen, click left top arrow button.
 
-![](https://cdn-images-1.medium.com/max/800/1*8ht8Eht1yG6JhJhwLcNr1Q.png)
+![](/images/1*8ht8Eht1yG6JhJhwLcNr1Q.png)
 
 It will allow you when you click the web page element, it will automatically locate the html element on the development tools source code tab, which you can identify the element ID if it has.
 
-![](https://cdn-images-1.medium.com/max/800/1*k9QcEQdDLPhYkRZ-U8BPiw.png)
+![](/images/1*k9QcEQdDLPhYkRZ-U8BPiw.png)
 
 After you run the python code in VS Code, if it is successful pass the test case, you should see the OK result in the output as following:
 
-![](https://cdn-images-1.medium.com/max/800/1*7yv9-tWivWAZhaSPjSTF_g.png)
+![](/images/1*7yv9-tWivWAZhaSPjSTF_g.png)
 
 ### **5. Summary**
 
