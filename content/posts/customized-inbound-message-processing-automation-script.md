@@ -6,8 +6,6 @@ draft: false
 ---
 
 
-*If you don’t have Medium account, you can read this blog through this *[*friend link*](/posts/customized-inbound-message-processing-automation-script/)*.*
-
 In my previous blog “[Introduce Maximo Enterprise Service to Accept Inbound Messages from Other Systems](/posts/maximo-enterprise-service-inbound-messages/)”, I introduced how to configure Maximo Enterprise Service for accepting inbound messages. In this blog, we will discuss how to implement customized logic in Maximo Enterprise Service through automation script to meet some special requirement.
 
 ### **1. Automation Script VS Java**

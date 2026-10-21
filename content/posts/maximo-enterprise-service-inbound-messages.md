@@ -6,8 +6,6 @@ draft: false
 ---
 
 
-*If you don’t have Medium member, you can try this *[*friend link*](/posts/maximo-enterprise-service-inbound-messages/)* to read.*
-
 In my previous blog [*Maximo Publish Channel for Sending Outbound Messages*](/posts/maximo-publish-channel-outbound-messages/) introduces outbound message from Maximo. How Maximo can accept inbound message from other system? There are 2 ways Maximo can receive outbound message from outside system to update the data in Maximo: (1) Through Object Structure Restful API (You can refer to my other blog “[*Introduction of Maximo NextGen Rest APIs — Part 2 Update Maximo Data*](/posts/maximo-nextgen-rest-apis-part2-update-data/)*”*, or (2) Through Enterprise Service, which will provide step by step instruction in this blog.
 
 Maximo Enterprise is part of Maximo Integration Frame (MIF) to receive outbound message / data from external system. This article is to provide the instruction on how to configure Maximo Enterprise Service along with other MIF modules to receive the data from other systems.
